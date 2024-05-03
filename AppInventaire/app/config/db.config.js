@@ -1,3 +1,3 @@
 module.exports = {
-    url: "mongodb://127.0.0.1:27017/StarServeur_db"
+    url: "mongodb://http://172.22.0.2:27017/StarServeur_db"
 } ; 

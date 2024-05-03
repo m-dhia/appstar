@@ -1,0 +1,33 @@
+version: '2.3' # specify docker-compose version
+
+# Define the networks
+networks:
+  mynetwork:
+
+# Define the services/containers to be run
+services:
+  angular:
+    build: ./AppInvFront
+    ports:
+      - 4200:4200
+    networks:
+      - mynetwork
+    hostname: localhost
+
+  express:
+    build: ./AppInventaire
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+    hostname: localhost
+    links:
+      - database
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+    hostname: localhost
